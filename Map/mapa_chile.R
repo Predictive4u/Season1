@@ -1,7 +1,6 @@
 rm(list=ls())
 library(readxl)
 library(ggplot2)
-library(dplyr)
 library(scales)
 
 load("Map/ShapeChileRegiones.RData")
@@ -17,8 +16,7 @@ mapa <- ggplot(pobreza_mapa) +
                    fill = Pobreza/100),
                colour ="white",
                size = 0.1) +
-  labs(fill = "") +
-  labs(x="",y="",
+  labs(x="",y="", fill = "",
        title="Incidencia de pobreza de Chile",
        caption = "@hanwengutierrez") +
   scale_fill_gradient2(
@@ -28,7 +26,7 @@ mapa <- ggplot(pobreza_mapa) +
     midpoint=0.11,
     labels = percent,
     na.value="white")  + 
-  theme_void() +
+  theme_void() + 
   theme(plot.title=element_text(size=16, hjust=-1, face="bold", vjust=-1)) 
 
 ggsave(mapa, filename = "Map/mapa_chile.jpeg", width = 10, height = 16, units = "cm")

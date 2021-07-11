@@ -29,6 +29,6 @@ mapa <- ggplot(pobreza_mapa) +
     labels = percent,
     na.value="gray70")  + 
   theme_void() +
-  theme(plot.title=element_text(size=16, hjust=-4, face="bold", vjust=-1)) 
+  theme(plot.title=element_text(size=16, hjust=1, face="bold", vjust=-1)) 
 
 ggsave(mapa, filename = "Map/mapa_colombia.jpeg")

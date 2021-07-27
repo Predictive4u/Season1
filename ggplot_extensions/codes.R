@@ -38,8 +38,9 @@ anim_save("ggplot_extensions/puntos.gif")
 library(ggrepel)
 r1 <- ggplot(gapminder %>% 
                filter(year == 2007, continent == "Americas"),
-             aes(y=lifeExp, x=gdpPercap)) + 
+             aes(y=lifeExp, x=gdpPercap, label = country)) + 
   geom_point(aes(size = pop)) +
   scale_size(range = c(.1, 20), guide = "none")  
 
-r1 + geom_text(aes(label = country))
+r1 + geom_text()
+r1 + geom_text_repel()

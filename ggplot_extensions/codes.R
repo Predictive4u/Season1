@@ -1,6 +1,8 @@
-## Crear animaciones con gganimate
 library(dplyr)
+library(ggplot2)
 library(gapminder)
+
+View(gapminder)
 
 ## ---------------------------------------------
 ## Combinar diferentes gráfics
@@ -14,7 +16,7 @@ r3 <- ggplot(gap.americas.2007) +
   geom_col(aes(x = country, y = gdpPercap)) + 
   theme(axis.text.x = element_text(angle = 45, vjust = 0.8))
 r1 + r2
-r1/r2
+r1 / r2
 (r1 + r2) / r3 
 
 ## ------------------------------------------------------------
@@ -22,6 +24,7 @@ r1/r2
 # PIB per cápita vs. esperanza vida para 2007 en Américas
 ## ------------------------------------------------------------
 library(ggrepel)
+library(stringr)
 gapC07 <- gapminder %>% 
   filter(year == 2007, str_detect(country, "^C"))
 r1 <- ggplot(gapC07, aes(y = lifeExp, x = gdpPercap, label = country)) + 

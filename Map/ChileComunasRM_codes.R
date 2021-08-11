@@ -4,9 +4,9 @@ library(ggplot2)
 library(scales)
 library(dplyr)
 
-load("Map/ShapeChileComunasRM.RData")
+load("Map/ChileComunasRM_Shape.RData")
 
-apruebo <- read_excel("Map/valores_Comunass_RM_Chile.xlsx")
+apruebo <- read_excel("Map/ChileComunasRM_valores.xlsx")
 
 apruebo_mapa <- full_join(x.RM, apruebo, by = "nombre_comuna")
 
@@ -25,4 +25,3 @@ mapa <- ggplot() +
   theme(plot.title=element_text(size=16, hjust=0.5, face="bold", vjust=-1)) 
 
 ggsave(mapa, filename = "Map/mapa_comunas_RM_Chile.jpeg", width = 30, height = 20, units = "cm")
-s

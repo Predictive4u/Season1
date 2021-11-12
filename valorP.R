@@ -7,7 +7,8 @@ n <- 20
 lambda <- 0.1
 for(i in 1:n.sim){
   x <- rpois(n, lambda)
-  count <- count + ifelse(t.test(x, mu = lambda)$p.value < 0.05, 1, 0)
+  count <- count + 
+    ifelse(t.test(x, mu = lambda)$p.value < 0.05, 1, 0)
 }
 count/n.sim
 
